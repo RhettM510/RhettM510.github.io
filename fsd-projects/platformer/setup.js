@@ -99,4 +99,7 @@ var collectableList = {
   max: { image: "images/collectables/max-head.png" },
   steve: { image: "images/collectables/steve-head.png" },
   moon: { image: "images/collectables/moon-head.png" },
-}
+  planet: { image: "images/collectables/planet-head.png" },
+  planets: { image: "images/collectables/planets-head.png"},
+  mars: {image: "images/collectables/mars-head.png"},
+};

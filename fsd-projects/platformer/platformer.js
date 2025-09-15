@@ -48,9 +48,9 @@ createPlatform(1350,600,100,20)
 
     // TODO 3 - Create Collectables
 createCollectable("moon",800,150,0,0.7);
-createCollectable("moon",800,350,0,0.7);
-createCollectable("moon",650,250,5,0.7);
-createCollectable("moon",1355,550,5,0.7);
+createCollectable("mars",800,350,0,0.7);
+createCollectable("planets",650,250,5,0.7);
+createCollectable("planet",1355,550,5,0.7);
 //createCollectable()
 
 
