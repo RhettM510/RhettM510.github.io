@@ -21,6 +21,10 @@
 
       .board {
         height: 100vh;
+        background-image: url("images/starfield.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
       }
     </style>
     <!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -33,8 +37,6 @@
     <script>
       (function () {
         "use strict";
-        /* global jQuery */
-
         //////////////////////////////////////////////////////////////////
         /////////////////// SETUP DO NOT DELETE //////////////////////////
         //////////////////////////////////////////////////////////////////
@@ -42,21 +44,22 @@
         var box = jQuery(".box"); // reference to the HTML .box element
         var board = jQuery(".board"); // reference to the HTML .board element
         var boardWidth = board.width(); // the maximum X-Coordinate of the screen
-
+        var boardHeight = jQuery(window).height();
         // update the boardWidth variable when the window is resized
         jQuery(window).on("resize", function () {
           boardWidth = board.width();
         });
 
-        // Every 50 milliseconds, call the update Function (see below)
-        setInterval(update, 50);
+        var interval = setInterval(update, 50);
+         function endGame() {
+          clearInterval(interval);
+        }
 
-        // Every time the box is clicked, call the handleBoxClick Function (see below)
         box.on("click", handleBoxClick);
 
-        // moves the Box to a new position on the screen along the X-Axis
-        function moveBoxTo(newPositionX) {
+        function moveBoxTo(newPositionX, newPositionY) {
           box.css("left", newPositionX);
+          box.css("top", newPositionY);
         }
 
         // changes the text displayed on the Box
@@ -69,21 +72,43 @@
         //////////////////////////////////////////////////////////////////
 
         // TODO 2 - Variable declarations
+        var positionX = 0;
+        var points = 0;
+        var speed = 10;
+        var positionY = 2;
+        var speedY = 3;
+        var misClicks = 0; // Track mis-clicks
+        var misClicks = 0;
 
+        var rainbow = [
+          "red",
+          "orange",
+          "yellow",
+          "green",
+          "blue",
+          "indigo",
+          "violet",
+        ];
+        var colorIndex = 0;
 
-
-
-
+        function getRainbowColor() {
+          var color = rainbow[colorIndex];
+          colorIndex = (colorIndex + 1) % rainbow.length;
+          return color;
+        }
         /**
          * This Function will be called 20 times/second.
          * Each time it is called, it should move the Box to a new location.
          * If the box drifts off the screen, turn it around!
          */
         function update() {
-
-        
-
-          
+          positionX += speed;
+          positionY += speedY;
+          if (positionX > boardWidth) speed *= -1;
+          if (positionX < 0) speed *= -1;
+          if (positionY > boardHeight) speedY *= -1;
+          if (positionY < 0) speedY *= -1;
+          moveBoxTo(positionX, positionY);
         }
 
         /**
@@ -94,14 +119,35 @@
          * - move the box to the left side of the screen.
          */
         function handleBoxClick() {
+          points = points + 1;
+          positionX = Math.random() * boardWidth;
+          changeBoxText(points);
+          if (speed > 0) {
+            speed = 3 * points + 10;
+          }
+          if (speed < 0) {
+            speed = -3 * points - 10;
+          }
 
-
-
-
+          // Challenge 5: Increase speed even more every 3 clicks
+          if (points % 3 === 0) {
+            if (speed > 0) {
+              speed += 5; // Increase by 5, you can change this value
+            } else {
+              speed -= 5;
+            }
+          }
+          board.on("click", function (event) {
+            if (!jQuery(event.target).is(box)) {
+              misClicks++;
+              if (misClicks % 10 === 0) {
+                endGame();
+                alert("Game Over! You mis-clicked " + misClicks + " times.");
+              }
+            }
+          });
+          box.css("background-color", getRainbowColor());
         }
-
-
-        
       })();
     </script>
   </body>
