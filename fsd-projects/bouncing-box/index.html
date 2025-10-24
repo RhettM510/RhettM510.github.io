@@ -51,12 +51,9 @@
         });
 
         var interval = setInterval(update, 50);
-         function endGame() {
-          clearInterval(interval);
-        }
 
         box.on("click", handleBoxClick);
-
+        board.on("click", handleBoardClick);
         function moveBoxTo(newPositionX, newPositionY) {
           box.css("left", newPositionX);
           box.css("top", newPositionY);
@@ -78,7 +75,6 @@
         var positionY = 2;
         var speedY = 3;
         var misClicks = 0; // Track mis-clicks
-        var misClicks = 0;
 
         var rainbow = [
           "red",
@@ -104,10 +100,19 @@
         function update() {
           positionX += speed;
           positionY += speedY;
-          if (positionX > boardWidth) speed *= -1;
-          if (positionX < 0) speed *= -1;
-          if (positionY > boardHeight) speedY *= -1;
-          if (positionY < 0) speedY *= -1;
+          if (positionX > boardWidth) {
+            speed *= -1;
+          }
+          if (positionX < 0) {
+            speed *= -1;
+          }
+          if (positionY > boardHeight) {
+            speedY *= -1;
+          }
+
+          if (positionY < 0) {
+            speedY *= -1;
+          }
           moveBoxTo(positionX, positionY);
         }
 
@@ -122,12 +127,6 @@
           points = points + 1;
           positionX = Math.random() * boardWidth;
           changeBoxText(points);
-          if (speed > 0) {
-            speed = 3 * points + 10;
-          }
-          if (speed < 0) {
-            speed = -3 * points - 10;
-          }
 
           // Challenge 5: Increase speed even more every 3 clicks
           if (points % 3 === 0) {
@@ -137,16 +136,17 @@
               speed -= 5;
             }
           }
-          board.on("click", function (event) {
-            if (!jQuery(event.target).is(box)) {
-              misClicks++;
-              if (misClicks % 10 === 0) {
-                endGame();
-                alert("Game Over! You mis-clicked " + misClicks + " times.");
-              }
-            }
-          });
           box.css("background-color", getRainbowColor());
+        }
+        function endGame() {
+          alert("Game Over! Your score is " + points + ".");
+          clearInterval(interval);
+        }
+        function handleBoardClick() {
+          misClicks++;
+          if (misClicks === 10) {
+            endGame();
+          }
         }
       })();
     </script>
