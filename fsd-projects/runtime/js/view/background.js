@@ -29,7 +29,8 @@ var background = function (window) {
     // ANIMATION VARIABLES HERE //////////////////////////////////////
     //////////////////////////////////////////////////////////////////
     // TODO (several):
-
+    var adidas;
+    var buildings = [];
     // called at the start of game and whenever the page is resized
     // add objects for display in background. draws each image added to the background once
     function render() {
@@ -53,10 +54,6 @@ var background = function (window) {
      
       // var groundFill = draw.bitmap("img/mall.jpeg");
       var groundFill = draw.rect(canvasWidth, canvasHeight - groundY, "green");
-     
-      
-      
-      
       
       groundFill.y = groundY;
       background.addChild(groundFill);
@@ -68,8 +65,21 @@ var background = function (window) {
       niketech.scaleY = 0.95;
       background.addChild(niketech);
       // TODO 4: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-
-      // TODO 3: Part 1 - Add a tree
+  for (var i = 0; i < 5; ++i) {
+  var buildingHeight = 300;
+  var building = draw.rect(75, buildingHeight, "LightGray", "Black", 1);
+  building.x = 200 * i;
+  building.y = groundY - buildingHeight;
+  background.addChild(building);
+  buildings.push(building);
+}
+      // TODO 3: Part 1 - Add a tree  
+      adidas = draw.bitmap('img/adidas.png');
+        adidas.x = 0;
+        adidas.y = 2;
+        adidas.scaleX = 1.5;
+        adidas.scaleY = 2;
+        background.addChild(adidas);
 
     } // end of render function - DO NOT DELETE
 
@@ -82,8 +92,15 @@ var background = function (window) {
       var groundY = ground.y;
 
       // TODO 3: Part 2 - Move the tree!
+adidas.x = adidas.x + 1;
 
+if (adidas.x < -200) {
+  adidas.x = canvasWidth;
+}
       // TODO 4: Part 2 - Parallax
+      for (var i = 0; i < buildings.length; i++) {
+      var eachElement = buildings[i];
+      }
     } // end of update function - DO NOT DELETE
 
     /* Make a createjs Container for the background and let it know about the render and upate functions*/
