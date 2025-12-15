@@ -66,7 +66,7 @@ var background = function (window) {
       background.addChild(niketech);
       // TODO 4: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
   for (var i = 0; i < 5; ++i) {
-  var buildingHeight = 300;
+  var buildingHeight = 150 + Math.random() * 300
   var building = draw.rect(75, buildingHeight, "LightGray", "Black", 1);
   building.x = 200 * i;
   building.y = groundY - buildingHeight;
@@ -76,7 +76,7 @@ var background = function (window) {
       // TODO 3: Part 1 - Add a tree  
       adidas = draw.bitmap('img/adidas.png');
         adidas.x = 0;
-        adidas.y = 2;
+        adidas.y = 1;
         adidas.scaleX = 1.5;
         adidas.scaleY = 2;
         background.addChild(adidas);
@@ -92,14 +92,19 @@ var background = function (window) {
       var groundY = ground.y;
 
       // TODO 3: Part 2 - Move the tree!
-adidas.x = adidas.x + 1;
+adidas.x = adidas.x - 1;
 
 if (adidas.x < -200) {
   adidas.x = canvasWidth;
 }
       // TODO 4: Part 2 - Parallax
+    
       for (var i = 0; i < buildings.length; i++) {
-      var eachElement = buildings[i];
+      var eachBuilding = buildings[i];
+      eachBuilding.x = eachBuilding.x -2.5;
+      }
+      if (eachBuilding.x < -75) {
+        anyBuilding.x = canvasWidth
       }
     } // end of update function - DO NOT DELETE
 

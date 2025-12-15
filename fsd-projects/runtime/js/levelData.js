@@ -18,6 +18,7 @@ var makeLevelData = function (window) {
           { type: "sawblade", x: 400, y: groundY },
           { type: "sawblade", x: 600, y: groundY },
           { type: "sawblade", x: 900, y: groundY },
+          { type: "reward", "x" : 2000, "y": groundY - 60 }
         ],
       },
       {
@@ -28,6 +29,15 @@ var makeLevelData = function (window) {
           { type: "sawblade", x: 400, y: groundY },
           { type: "sawblade", x: 600, y: groundY },
           { type: "sawblade", x: 900, y: groundY },
+        ],
+        name: "Robot Romp",
+        number: 1,
+        speed: -3,
+        gameItems: [
+          { type: "sawblade", x: 400, y: groundY },
+          { type: "sawblade", x: 600, y: groundY },
+          { type: "sawblade", x: 900, y: groundY },
+          { type: "reward", "x" : 2000, "y": groundY - 60 }
         ],
       },
     ];

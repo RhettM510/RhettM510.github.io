@@ -54,8 +54,8 @@ var redSquare = draw.rect(50, 50, "red");
 redSquare.x = -25;
 redSquare.y = -25;
 enemy.addChild(redSquare);
-enemy.x = 400;
-enemy.y = groundY - 50;
+enemy.x = x;
+enemy.y = y;
 game.addGameItem(enemy);
 enemy.velocityX = -1.2;
 enemy.onPlayerCollision = function () {game.changeIntegrity(-20)};
@@ -71,24 +71,40 @@ createEnemy(1200, groundY - 50);
 
 
 
-function createReward () {
-var enemy = game.createGameItem("enemy", 25);
-var redSquare = draw.rect(50, 50, "blue");
-blueSquare.x = -25;
-blueSquare.y = -25;
-enemy.addChild(blueSquare);
-enemy.x = 400;
-enemy.y = groundY - 50;
-game.addGameItem(enemy);
-enemy.velocityX = -1;
+function createReward (x, y) {
+var reward = game.createGameItem("reward", 25);
+var blueSquare = draw.rect(50, 50, "blue");
+blueSquare.x = -25
+blueSquare.y = -25
+reward.addChild(blueSquare);
+reward.x = x;
+reward.y = y;
+game.addGameItem(blueSquare);
+reward.velocityX = -1.5
+reward.onPlayerCollision = function () {
+  game.changeIntegrity(20);
+  reward.fadeOut();
 }
-enemy.onPlayerCollision = function () 
-{game.changeIntegrity(20)};
-enemy.onProjectileCollision = function () {
-game.increaseScore(100);
-enemy.shrink()
 }
-function createMarker () {
+createReward(1100, groundY - 20)
+function createMarker (x, y) {
+  var marker = draw.rect(50, 50, "green");
+  greenSquare.x = -25
+  greemSquare.y = -25
+  marker.addChild(greenSquare);
+  marker.x = x;
+  marker.y = y;
+  game.addChild(greenSquare);
+  marker.velocityX = -1.5
+  marker.onPlayerCollision = function () {
+  startLevel();
+  marker.fadeOut
+  }
+  marker.onProjectileCollision = function () {
+  startLevel();
+  marker.fadeout
+  }
+}
 
 }
     function startLevel() {
