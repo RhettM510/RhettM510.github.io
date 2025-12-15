@@ -79,30 +79,30 @@ blueSquare.y = -25
 reward.addChild(blueSquare);
 reward.x = x;
 reward.y = y;
-game.addGameItem(blueSquare);
+game.addGameItem(reward);
 reward.velocityX = -1.5
 reward.onPlayerCollision = function () {
-  game.changeIntegrity(20);
-  reward.fadeOut();
+game.changeIntegrity(20);
+reward.fadeOut();
 }
 }
 createReward(1100, groundY - 20)
+
 function createMarker (x, y) {
-  var marker = draw.rect(50, 50, "green");
+  var marker = game.createGameItem("marker", 25)
+  marker = draw.rect(50, 50, "green");
   greenSquare.x = -25
-  greemSquare.y = -25
+  greenSquare.y = -25
   marker.addChild(greenSquare);
   marker.x = x;
   marker.y = y;
-  game.addChild(greenSquare);
+  game.addGameItem(greenSquare);
   marker.velocityX = -1.5
-  marker.onPlayerCollision = function () {
+  marker.onPlayerCollision = function markerHit() {
   startLevel();
-  marker.fadeOut
   }
-  marker.onProjectileCollision = function () {
-  startLevel();
-  marker.fadeout
+  marker.onProjectileCollision = function endOfLevel () {
+    startLevel();
   }
 }
 
@@ -123,7 +123,7 @@ function createMarker (x, y) {
     }
     startLevel();
   };
-};
+
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if (
