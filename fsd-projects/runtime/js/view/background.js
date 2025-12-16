@@ -104,7 +104,7 @@ if (adidas.x < -200) {
       eachBuilding.x = eachBuilding.x -2.5;
       }
       if (eachBuilding.x < -75) {
-        anyBuilding.x = canvasWidth
+        eachBuilding.x = canvasWidth
       }
     } // end of update function - DO NOT DELETE
 

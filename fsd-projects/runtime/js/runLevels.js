@@ -106,10 +106,11 @@ var runLevels = function (window) {
     }
     function startLevel() {
       // TODO 13 goes below here
-var level = levelData(currentLevel);
-var levelObjects = level.addGameItem
-
-
+var level = levelData[currentLevel];
+var levelObjects = level.gameItems
+for (var i = 0; i =  ) {
+var eachObject = levelObjects[i]
+}
 
 
 
