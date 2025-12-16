@@ -97,27 +97,33 @@ var runLevels = function (window) {
       marker.y = y;
       game.addGameItem(greenSquare);
       marker.velocityX = -1.5;
-      marker.onPlayerCollision = function markerHit() {
+      marker.onPlayerCollision = function () {
         startLevel();
       };
-      marker.onProjectileCollision = function endOfLevel() {
+      marker.onProjectileCollision = function () {
         startLevel();
       };
     }
-  };
-  function startLevel() {
-    // TODO 13 goes below here
+    function startLevel() {
+      // TODO 13 goes below here
+var level = levelData(currentLevel);
+var levelObjects = level.addGameItem
 
-    //////////////////////////////////////////////
-    // DO NOT EDIT CODE BELOW HERE
-    //////////////////////////////////////////////
-    if (++currentLevel === levelData.length) {
-      startLevel = () => {
-        console.log("Congratulations!");
-      };
+
+
+
+
+      //////////////////////////////////////////////
+      // DO NOT EDIT CODE BELOW HERE
+      //////////////////////////////////////////////
+      if (++currentLevel === levelData.length) {
+        startLevel = () => {
+          console.log("Congratulations!");
+        };
+      }
     }
-  }
-  startLevel();
+    startLevel();
+  };
 };
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
