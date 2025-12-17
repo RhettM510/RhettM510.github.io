@@ -33,8 +33,8 @@ var runLevels = function (window) {
       obstacleImage.x = -26;
       obstacleImage.y = -26;
     }
-    createSawBlade(400, 400);
-    createSawBlade(800, 490);
+    createSawBlade(400, 460);
+    createSawBlade(800, 410);
     createSawBlade(990, 360);
 
     // function createSawBlade (x, y) {
@@ -57,7 +57,7 @@ var runLevels = function (window) {
       enemy.x = x;
       enemy.y = y;
       game.addGameItem(enemy);
-      enemy.velocityX = -1.2;
+      enemy.velocityX = -3.5;
       enemy.onPlayerCollision = function () {
         game.changeIntegrity(-20);
       };
@@ -67,7 +67,7 @@ var runLevels = function (window) {
       };
     }
     createEnemy(400, groundY - 10);
-    createEnemy(800, groundY - 100);
+    createEnemy(900, groundY - 100);
     createEnemy(1200, groundY - 50);
 
     function createReward(x, y) {
