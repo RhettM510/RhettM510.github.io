@@ -67,7 +67,7 @@ var runLevels = function (window) {
       };
     }
     createEnemy(400, groundY - 10);
-    createEnemy(900, groundY - 105);
+    createEnemy(900, groundY - 120);
     createEnemy(1200, groundY - 50);
 
     function createReward(x, y) {
@@ -81,12 +81,10 @@ var runLevels = function (window) {
       game.addGameItem(reward);
       reward.velocityX = -1.5;
       reward.onPlayerCollision = function () {
-        game.changeIntegrity(20);
         reward.fadeOut();
         if (game.Integrity === 100) {
           game.increaseScore(200);
-        }
-        else {
+        } else {
           game.changeIntegrity(20);
         }
       };
@@ -94,11 +92,11 @@ var runLevels = function (window) {
     createReward(1200, groundY - 50);
 
     function createMarker(x, y) {
-    var marker = game.createGameItem("marker", 25);
-    var yellowSquare  = draw.rect(50, 50, "yellow");
+      var marker = game.createGameItem("marker", 25);
+      var yellowSquare = draw.rect(50, 50, "yellow");
       yellowSquare.x = -25;
       yellowSquare.y = -25;
-      marker.addChild(yellowSquare);
+      marker.addChild(marker);
       marker.x = x;
       marker.y = y;
       game.addGameItem(yellowSquare);
@@ -112,17 +110,13 @@ var runLevels = function (window) {
     }
     createMarker(1000, groundY - 30);
 
-
-
     function startLevel() {
       // TODO 13 goes below here
-var level = levelData[currentLevel];
-var levelObjects = level.gameItems
-for (var i = 0; i < levelObjects.length; i++) {
-var eachObject = levelObjects[i]
-}
-
-
+      var level = levelData[currentLevel];
+      var levelObjects = level.gameItems;
+      for (var i = 0; i < levelObjects.length; i++) {
+        var eachObject = levelObjects[i];
+      }
 
       //////////////////////////////////////////////
       // DO NOT EDIT CODE BELOW HERE
