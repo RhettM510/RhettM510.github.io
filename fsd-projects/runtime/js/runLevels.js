@@ -93,7 +93,7 @@ var runLevels = function (window) {
 
     function createMarker(x, y) {
       var marker = game.createGameItem("marker", 25);
-      var blackSquareSquare = draw.rect(50, 50, "black");
+      var blackSquare = draw.rect(50, 50, "black");
       blackSquare.x = -25;
       blackSquare.y = -25;
       marker.addChild(marker);
