@@ -35,7 +35,7 @@ var runLevels = function (window) {
     }
     createSawBlade(400, 465);
     createSawBlade(800, 430);
-    createSawBlade(990, 360);
+    createSawBlade(990, 350);
 
     // function createSawBlade (x, y) {
     // ballHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
@@ -83,6 +83,12 @@ var runLevels = function (window) {
       reward.onPlayerCollision = function () {
         game.changeIntegrity(20);
         reward.fadeOut();
+        if (game.Integrity === 100) {
+          game.increaseScore(200);
+        }
+        else {
+          game.changeIntegrity(20);
+        }
       };
     }
     createReward(1100, groundY - 20);
