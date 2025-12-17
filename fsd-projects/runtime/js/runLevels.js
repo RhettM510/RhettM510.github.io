@@ -91,7 +91,7 @@ var runLevels = function (window) {
         }
       };
     }
-    createReward(1100, groundY - 20);
+    createReward(1200, groundY - 50);
 
     function createMarker(x, y) {
     var marker = game.createGameItem("marker", 25);
