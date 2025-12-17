@@ -88,8 +88,8 @@ var runLevels = function (window) {
     createReward(1100, groundY - 20);
 
     function createMarker(x, y) {
-      var marker = game.createGameItem("marker", 25);
-      marker = draw.rect(50, 50, "yellow");
+    var marker = game.createGameItem("marker", 25);
+    var yellowSquare  = draw.rect(50, 50, "yellow");
       yellowSquare.x = -25;
       yellowSquare.y = -25;
       marker.addChild(yellowSquare);
