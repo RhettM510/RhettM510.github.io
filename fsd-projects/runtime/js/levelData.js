@@ -30,7 +30,8 @@ var makeLevelData = function (window) {
           { type: "sawblade", x: 400, y: groundY },
           { type: "sawblade", x: 600, y: groundY },
           { type: "sawblade", x: 900, y: groundY },
-          { type: "marker", x: 2000, y: groundY - 50}
+          { type: "marker", x: 1000, y: groundY - 30},
+          { type: "reward", x: 1100, y: groundY - 20},
 
         ],
         name: "hallebot",
@@ -40,7 +41,7 @@ var makeLevelData = function (window) {
           { type: "sawblade", x: 400, y: groundY },
           { type: "sawblade", x: 600, y: groundY },
           { type: "sawblade", x: 900, y: groundY },
-          { type: "reward", "x" : 2000, "y": groundY - 60 },
+          { type: "reward", x: 2000, y: groundY - 60},
           { type: "marker", x: 2000, y: groundY - 50}
 
         ],

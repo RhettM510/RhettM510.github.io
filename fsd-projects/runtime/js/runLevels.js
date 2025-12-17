@@ -34,7 +34,7 @@ var runLevels = function (window) {
       obstacleImage.y = -26;
     }
     createSawBlade(400, 460);
-    createSawBlade(800, 410);
+    createSawBlade(800, 420);
     createSawBlade(990, 360);
 
     // function createSawBlade (x, y) {
@@ -62,7 +62,7 @@ var runLevels = function (window) {
         game.changeIntegrity(-20);
       };
       enemy.onProjectileCollision = function () {
-        game.increaseScore(100);
+        game.increaseScore(400);
         enemy.shrink();
       };
     }
