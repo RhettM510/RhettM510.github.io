@@ -33,8 +33,8 @@ var runLevels = function (window) {
       obstacleImage.x = -26;
       obstacleImage.y = -26;
     }
-    createSawBlade(400, 460);
-    createSawBlade(800, 420);
+    createSawBlade(400, 465);
+    createSawBlade(800, 430);
     createSawBlade(990, 360);
 
     // function createSawBlade (x, y) {
@@ -67,7 +67,7 @@ var runLevels = function (window) {
       };
     }
     createEnemy(400, groundY - 10);
-    createEnemy(900, groundY - 100);
+    createEnemy(900, groundY - 105);
     createEnemy(1200, groundY - 50);
 
     function createReward(x, y) {
