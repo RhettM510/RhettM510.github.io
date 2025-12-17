@@ -89,13 +89,13 @@ var runLevels = function (window) {
 
     function createMarker(x, y) {
       var marker = game.createGameItem("marker", 25);
-      marker = draw.rect(50, 50, "green");
-      greenSquare.x = -25;
-      greenSquare.y = -25;
-      marker.addChild(greenSquare);
+      marker = draw.rect(50, 50, "yellow");
+      yellowSquare.x = -25;
+      yellowSquare.y = -25;
+      marker.addChild(yellowSquare);
       marker.x = x;
       marker.y = y;
-      game.addGameItem(greenSquare);
+      game.addGameItem(yellowSquare);
       marker.velocityX = -1.5;
       marker.onPlayerCollision = function () {
         startLevel();
@@ -104,11 +104,15 @@ var runLevels = function (window) {
         startLevel();
       };
     }
+    createMarker(1000, groundY - 30);
+
+
+
     function startLevel() {
       // TODO 13 goes below here
 var level = levelData[currentLevel];
 var levelObjects = level.gameItems
-for (var i = 0; i =  ) {
+for (var i = 0; i < levelObjects.length; i++) {
 var eachObject = levelObjects[i]
 }
 
